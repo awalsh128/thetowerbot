@@ -109,7 +109,7 @@ class AdbDevice(val deviceSerial: String, private val client: AndroidDebugBridge
                 deviceSerial
             )) {
           for (line in lines.split("\n").filter { !it.isEmpty() }) {
-            logger.debug { "shell getevent $deviceFile: '$line'" }
+            logger.debug { "shell getevent -l $deviceFile: '$line'" }
             try {
               send(Event.parse(line))
             } catch (e: Exception) {
